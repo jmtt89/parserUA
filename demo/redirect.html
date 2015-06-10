@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>parse UserAgent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./demo/assets/normalize.css" />
+    <link rel="stylesheet" href="./demo/assets/main.css" />
+    <style>
+      /* begin demo embedded styles */
+
+      /* end demo embedded styles */
+    </style>
+  </head>
+  <body>
+    <h1>Redirecting, please wait...</h1>
+
+    <!-- begin demo markup -->
+
+    <!-- end demo markup -->
+
+    <script src="../dist/parserUA.js"></script>
+
+    <script>
+      /* begin demo script */
+
+      var deviceInfo = parserUA();
+
+      var platform = deviceInfo.system.os.toLowerCase(),
+          version = parseFloat(deviceInfo.system.version);
+
+      if( platform === "android"  &&  deviceInfo.system.version > 2.3 ){
+        window.location = "https://play.google.com/store?hl=en";
+      }else if(platform === "ios"  &&  deviceInfo.system.version > 7){
+        window.location = "https://itunes.apple.com/en/genre/ios/id36?mt=8";
+      }else{
+          window.location = "https://google.com";
+      }
+
+      /* end demo script */
+    </script>
+  </body>
+</html>
