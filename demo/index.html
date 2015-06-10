@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>parse UserAgent</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="./assets/normalize.css" />
+		<link rel="stylesheet" href="./assets/main.css" />
+		<style>
+			/* begin demo embedded styles */
+
+			/* end demo embedded styles */
+		</style>
+	</head>
+	<body>
+		<h1>Parse UserAgent</h1>
+
+		<!-- begin demo markup -->
+
+		<div>
+			<h3>UserAgent</h3>
+			<p id="userAgent"></p>
+		</div> 
+
+		<hr/>
+
+		<div>
+			<h3>Browser</h3>
+			<ul>
+				<li id="bType"></li>
+				<li id="bVersion"></li>
+				<li id="bLang"></li>
+			</ul>
+		</div>
+
+		<hr/>
+
+		<div>
+			<h3>Hardware</h3>
+			<ul>
+				<li id="hType"></li>
+				<li id="hDevice"></li>
+				<li id="hVersion"></li>
+			</ul>
+		</div>
+
+		<hr/>
+
+		<div>
+			<h3>Platform</h3>
+			<ul>
+				<li id="pDevice"></li>
+				<li id="pVersion"></li>
+			</ul>
+		</div>
+
+		<!-- end demo markup -->
+
+		<p>See the <a href="http://jmtt89.github.io/parserUA">project homepage</a>.
+		<p>Check out the <a href="https://github.com/jmtt89/parserUA">project repo</a>.
+		<p>Copyright 2015 Jesus Torres</p>
+
+		<script src="./../dist/parserUA.js"></script>
+
+		<script>
+			/* begin demo script */
+
+			var deviceInfo = parserUA();
+
+			var aux;
+			aux = document.getElementById("userAgent");
+			aux.textContent = deviceInfo.userAgent;
+
+			aux = document.getElementById("bLang");
+			aux.textContent = deviceInfo.browser.lang;
+
+			aux = document.getElementById("bVersion");
+			aux.textContent = deviceInfo.browser.version;
+
+			aux = document.getElementById("bType");
+			aux.textContent = deviceInfo.browser.type;
+
+			aux = document.getElementById("hDevice");
+			aux.textContent = deviceInfo.hardware.device;
+
+			aux = document.getElementById("hVersion");
+			aux.textContent = deviceInfo.hardware.version;
+
+			aux = document.getElementById("hType");
+			aux.textContent = deviceInfo.hardware.type;
+
+			aux = document.getElementById("pDevice");
+			aux.textContent = deviceInfo.system.os;
+
+			aux = document.getElementById("pVersion");
+			aux.textContent = deviceInfo.system.version;
+
+
+			/* end demo script */
+		</script>
+	</body>
+</html>
